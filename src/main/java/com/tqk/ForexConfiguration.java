@@ -5,11 +5,9 @@ import org.springframework.context.annotation.Bean;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AvailabilityFilteringRule;
-import com.netflix.loadbalancer.ConfigurationBasedServerList;
 import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
-import com.netflix.loadbalancer.ServerList;
 
 /**
  *
@@ -31,12 +29,5 @@ public class ForexConfiguration {
 		return new AvailabilityFilteringRule();
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Bean
-	public ServerList ribbonServerList(IClientConfig config) {
-		ConfigurationBasedServerList serverList = new ConfigurationBasedServerList();
-		serverList.initWithNiwsConfig(config);
-		return serverList;
-	}
 
 }
